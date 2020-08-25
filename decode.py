@@ -93,7 +93,7 @@ def parse_boot_data(buff):
     if 0x10000000 <= start <= 0xFFFFFFFF:
         MB = (start - 0x10000000) / 1024 / 1024
         print("  start is in DDR, off=%u MB" % (MB,)) 
-    unpackb32(buff, "bd_length")
+    unpackl32(buff, "bd_length")
     plugin = unpackb32(buff, "bd_plugin")
     if plugin:
         print("FIXME: parse plugin")
